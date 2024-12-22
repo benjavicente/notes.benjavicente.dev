@@ -1,0 +1,27 @@
+---
+title: "Notes"
+pubDate: "2024-12-21"
+---
+
+import NotesList, { childOf } from "@/NotesList.astro";
+
+
+<NotesList filter={childOf("/")} />
+
+---
+
+## This is not a blog
+
+[Here is my blog](//benjavicente.dev/blog).
+I have a lot of ideas that don't deserve a full blog post, but still want to share.
+Here are some of them.
+
+The difference is a blog entry vs a post entry is similar to a video vs a short. 
+Notes are simple ideas that can be consumed in a couple of minutes, while blog posts are more detailed and produced.
+
+
+## Why astro
+
+I don't like that much [Astro](https://astro.build).
+I don't like too much their templating syntax and that it doesn't provide a client side router.
+But because it's simpler thanks to content collections and been builded on vite, it made more cense to this stuff.

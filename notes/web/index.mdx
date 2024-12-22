@@ -1,0 +1,29 @@
+---
+title: "Notes about web development"
+pubDate: "2024-12-21"
+---
+
+import NotesList, { childOf } from "@/NotesList.astro";
+
+
+## Notes
+
+<NotesList filter={childOf("/web/")} />
+
+## Notes ideas
+
+- Routers are Frontend Frameworks, key parts
+  - it isn't about client first
+  - there are necessary for web applications
+  - `loaders` are really `beforeNavigation`
+  - how it combos with batching
+- Query and Mutation client (ReactQuery)
+  - Caching is different from data loading
+  - Key to integrate data loading with library primitives
+- There will always be new UI libraries (why base-ui makes sense, and leaving baggage behind)
+  - New CSS and JS features -> more baggage
+  - Open source projects need incentives, not only community
+- Client vs backend first, isomorphic apps coming from SPA, and going back to the server with RSC.
+- The importance of batching
+  - stop repeating stuff with n queries to the backend
+  - graphql + dataloader, trpc, single flight mutations

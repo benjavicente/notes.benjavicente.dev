@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "./prose.css";
+
+@font-face {
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+}
+@font-face {
+  font-family: InterVariable;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
+}
+
+@theme {
+  --color-orange-50: oklch(0.98 0.016 73.684);
+  --color-orange-100: oklch(0.954 0.038 75.164);
+  --color-orange-200: oklch(0.901 0.076 70.697);
+  --color-orange-300: oklch(0.837 0.128 66.29);
+  --color-orange-400: oklch(0.75 0.183 55.934);
+  --color-orange-500: oklch(0.705 0.213 47.604);
+  --color-orange-600: oklch(0.646 0.222 41.116);
+  --color-orange-700: oklch(0.553 0.195 38.402);
+  --color-orange-800: oklch(0.47 0.157 37.304);
+  --color-orange-900: oklch(0.408 0.123 38.172);
+  --color-orange-950: oklch(0.266 0.079 36.259);
+
+  --color-forest-50: #f8fcfc;
+  --color-forest-100: #f1f9f8;
+  --color-forest-200: #e1eeef;
+  --color-forest-300: #cbe1e1;
+  --color-forest-400: #94b5b8;
+  --color-forest-500: #65888b;
+  --color-forest-600: #48676a;
+  --color-forest-700: #345356;
+  --color-forest-800: #1d363a;
+  --color-forest-900: #0f2429;
+  --color-forest-950: #021217;
+}
+
+:root {
+  font-family: InterVariable, sans-serif;
+  /* 
+  calt: contextual alternatives
+  ss01: square digits
+  ss07: square puntation
+  ss08: square quotes
+  cv10: capital G with spur
+  cv08: I with serif
+  cv05: l with tail
+  */
+  font-feature-settings: "calt", "ss01", "ss07", "ss08", "cv10", "cv08", "cv05";
+}
+
+body {
+  color: var(--color-forest-50);
+  background-color: var(--color-forest-950);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

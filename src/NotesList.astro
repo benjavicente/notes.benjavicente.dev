@@ -1,0 +1,42 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+interface Props {
+  filter: (entry: CollectionEntry<"notes">) => void;
+  listTitle?: string;
+}
+
+export function childOf(parentId: string) {
+  return ({ id: childId }: CollectionEntry<"notes">) => {
+    if (!childId.startsWith(parentId)) return false;
+    return childId.substring(parentId.length).lastIndexOf("/") === -1 && childId !== parentId;
+  };
+}
+
+const posts = await getCollection("notes", Astro.props.filter);
+---
+
+<div
+  class="not-prose grid grid-cols-2 gap-2 flex-wrap my-4"
+  role="list"
+  aria-label={Astro.props.listTitle ?? "Related entries"}
+>
+  {
+    posts
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .map((post) => (
+        <article
+          class="relative group px-2 py-3 rounded border flex flex-col gap-2 justify-between border-forest-600 bg-forest-900"
+          role="listitem"
+        >
+          <a href={post.id} class="hover:underline cursor-pointer leading-tight text-lg block text-balance">
+            {post.data.title}
+            <span class="absolute inset-0" />
+          </a>
+          <time class="text-xs text-balance text-right text-forest-400" datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString("en")}
+          </time>
+        </article>
+      ))
+  }
+</div>
