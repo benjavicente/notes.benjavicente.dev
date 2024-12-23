@@ -1,3 +1,3 @@
 # Notes
 
-https://notes.benjavicented.dev
+https://notes.benjavicente.dev
