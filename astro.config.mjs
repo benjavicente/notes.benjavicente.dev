@@ -5,10 +5,13 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import codeTheme from "./src/vitesse-dark-green.json";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://notes.benjavicente.dev",
   integrations: [mdx(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   vite: {
     plugins: [tailwindcss()],
   },
