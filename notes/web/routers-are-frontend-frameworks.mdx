@@ -1,0 +1,40 @@
+---
+title: "Routers are frontend frameworks"
+pubDate: "2024-12-27"
+---
+
+An programming application framework determines the structure that the code should follow,
+such that the framework itself can provide abstractions that avoid repetition, allow easier optimizations, and provide a consistent developer experience.
+
+A frontend framework isn't a component building library like React.
+It isn't a build tool like Vite, or a state management solution.
+Those can be combined to improve the DX, but I don't thing they convey the essence of a frontend framework.
+
+Frontend frameworks are the ones responsable of separating the concerns of the application.
+The concerns are usually grouped on URLs. So it's explicit that routing is part of the equation of what a frontend framework is.
+
+There's also an implicit factor. Pages and data loading can be organized easily with code abstractions and conventions,
+such that a router can orchestrate how those pieces work on the entire application.
+
+## Why routers are needed
+
+The web started as a document sharing platform. HTML are documents.
+Browsers behave like document viewers, even thought they allow app-like interactions.
+And it works. But doesn't work great when simple systems try to be more like apps.
+
+Applications hold state, both in UI and data.
+When the state changes, like on navigation, it shouldn't restart from scratch.
+But that is how the browser works.
+
+This behavior does not scale.
+Apps will tend to have more code that should not be re-executed on navigation.
+Both on the server, like avoiding to reload the entire data for a page, and on the client, like reloading global libraries (ej: analytics) and state.
+
+[Hotwire](https://hotwired.dev/), [Inertia](https://inertiajs.com/how-it-works), [HTMX](https://htmx.org/), [React Router](https://reactrouter.com/), and a lot more, do eventually the same thing: 
+Provide abstractions and constrains to avoid unnecessary reloading.
+
+---
+
+While the “frontend frameworks” term is usually associated with “the client side code”, it's more than that.
+Routing are a key component on the server-client architecture,
+and allows the code to scale both on organization and performance.
